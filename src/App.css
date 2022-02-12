@@ -1,10 +1,18 @@
-.App {
-  margin: 100px;
+.main {
+  margin: 2% 20% 2% 20%;
   padding: 10px;
 }
 
-.image {
-  height: 250px;
-  width: 120px;
-  text-align: center;
+.basic-info {
+  display: flex;
+
+  .img {
+    height: 250px;
+    width: 120px;
+    text-align: center;
+  }
+
+  .main-info {
+    margin-left: 2% !important;
+  }
 }

@@ -62,82 +62,82 @@ const App = () => {
 
   return (
     <div>
-      <Form className='App'>
-        <Card className='image'>
-          <Card.Content>slika</Card.Content>
-        </Card>
-        <Form.Group>
-          <Form.Select
-            label='Muftijstvo'
-            options={getSelectOptions(muftijstvaIMedzlisi, true)}
-            placeholder='Odaberite muftijstvo'
-            width={6}
-            required
-            name='muftijstvo'
-            value={formValues.muftijstvo}
-            onChange={handleOnChange}
-          />
-          <Form.Select
-            label='Medžlis'
-            options={getMedzlisiOdMuftijstva(formValues.muftijstvo)}
-            placeholder='Odaberite medžlis'
-            width={6}
-            required
-            name='medzlis'
-            value={formValues.medzlis}
-            onChange={handleOnChange}
-          />
-        </Form.Group>
+      <Form className='main'>
+        <div className='basic-info'>
+          <Card className='img'>
+            <Card.Content>slika</Card.Content>
+          </Card>
+          <div className='main-info'>
+            <Form.Group widths='equal'>
+              <Form.Select
+                label='Muftijstvo'
+                options={getSelectOptions(muftijstvaIMedzlisi, true)}
+                placeholder='Odaberite muftijstvo'
+                required
+                name='muftijstvo'
+                value={formValues.muftijstvo}
+                onChange={handleOnChange}
+              />
+              <Form.Select
+                label='Medžlis'
+                options={getMedzlisiOdMuftijstva(formValues.muftijstvo)}
+                placeholder='Odaberite medžlis'
+                required
+                name='medzlis'
+                value={formValues.medzlis}
+                onChange={handleOnChange}
+              />
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Input
-            label='Ime i prezime'
-            placeholder='Unesite Vaše ime i prezime'
-            width={12}
-            required
-            name='imeIPrezime'
-            value={formValues.imeIPrezime}
-            onChange={handleOnChange}
-          />
-        </Form.Group>
+            <Form.Group>
+              <Form.Input
+                label='Ime i prezime'
+                placeholder='Unesite Vaše ime i prezime'
+                width={16}
+                required
+                name='imeIPrezime'
+                value={formValues.imeIPrezime}
+                onChange={handleOnChange}
+              />
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Input
-            label='Ime oca'
-            placeholder='Unesite ime oca'
-            required
-            width={4}
-            name='imeOca'
-            value={formValues.imeOca}
-            onChange={handleOnChange}
-          />
-          <Form.Input
-            label='Ime djeda'
-            placeholder='Unesite ime djeda'
-            required
-            width={4}
-            name='imeDjeda'
-            value={formValues.imeDjeda}
-            onChange={handleOnChange}
-          />
-          <Form.Input
-            label='Ime majke'
-            placeholder='Unesite ime majke'
-            required
-            width={4}
-            name='imeMajke'
-            value={formValues.imeMajke}
-            onChange={handleOnChange}
-          />
-        </Form.Group>
+            <Form.Group widths='equal'>
+              <Form.Input
+                label='Ime oca'
+                placeholder='Unesite ime oca'
+                required
+                name='imeOca'
+                value={formValues.imeOca}
+                onChange={handleOnChange}
+              />
+              <Form.Input
+                label='Ime djeda'
+                placeholder='Unesite ime djeda'
+                required
+                name='imeDjeda'
+                value={formValues.imeDjeda}
+                onChange={handleOnChange}
+              />
+              <Form.Input
+                label='Ime majke'
+                placeholder='Unesite ime majke'
+                required
+                name='imeMajke'
+                value={formValues.imeMajke}
+                onChange={handleOnChange}
+              />
+            </Form.Group>
+          </div>
+        </div>
 
+        <Divider />
         <Form.Group>
           <Form.Select
             label='Bračno stanje'
             options={getSelectOptions(maritalStatuses)}
             placeholder='Odaberite bračno stanje'
             required
-            width={6}
+            width={4}
             name='bracnoStanje'
             value={formValues.bracnoStanje}
             onChange={handleOnChange}
@@ -147,14 +147,14 @@ const App = () => {
             options={getSelectOptions(gender)}
             placeholder='Odaberite spol'
             required
-            width={6}
+            width={4}
             name='spol'
             value={formValues.spol}
             onChange={handleOnChange}
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group widths='equal'>
           <Form.Field
             label='Datum rođenja'
             control={DatePicker}
@@ -173,19 +173,14 @@ const App = () => {
             label='Mjesto rođenja'
             placeholder='Unesite mjesto rođenja'
             required
-            width={6}
             name='mjestoRodjenja'
             value={formValues.mjestoRodjenja}
             onChange={handleOnChange}
           />
-        </Form.Group>
-
-        <Form.Group>
           <Form.Input
             label='Sadašnje državljanstvo'
             placeholder='Unesite sadašnje državljanstvo'
             required
-            width={6}
             name='sadasnjeDrzavljanstvo'
             value={formValues.sadasnjeDrzavljanstvo}
             onChange={handleOnChange}
@@ -195,7 +190,6 @@ const App = () => {
             label='Državljanstvo pri rođenju'
             placeholder='Unesite državljanstvo pri rođenju'
             required
-            width={6}
             name='drzavljanstvoPriRodjenju'
             value={formValues.drzavljanstvoPriRodjenju}
             onChange={handleOnChange}
@@ -207,7 +201,7 @@ const App = () => {
             label='Adresa stanovanja'
             placeholder='Unesite adresu stanovanja'
             required
-            width={6}
+            width={10}
             name='adresa'
             value={formValues.adresa}
             onChange={handleOnChange}
@@ -215,9 +209,9 @@ const App = () => {
 
           <Form.Input
             label='Broj ulice'
-            placeholder='Unesite broj ulice'
+            placeholder='Unesite br. ulice'
             required
-            width={6}
+            width={2}
             name='adresaBroj'
             value={formValues.adresaBroj}
             onChange={handleOnChange}
@@ -229,7 +223,7 @@ const App = () => {
             label='Mjesto stanovanja'
             placeholder='Unesite mjesto/grad stanovanja'
             required
-            width={6}
+            width={10}
             name='mjestoStanovanja'
             value={formValues.mjestoStanovanja}
             onChange={handleOnChange}
@@ -237,9 +231,9 @@ const App = () => {
 
           <Form.Input
             label='Broj pošte'
-            placeholder='Unesite broj pošte'
+            placeholder='Unesite br. pošte'
             required
-            width={6}
+            width={2}
             name='brojPoste'
             value={formValues.brojPoste}
             onChange={handleOnChange}
@@ -273,8 +267,8 @@ const App = () => {
             label='Zaposlen'
             options={getSelectOptions(yesNo)}
             placeholder='Odaberite opciju'
-            width={3}
             required
+            width={3}
             name='zaposlen'
             value={formValues.zaposlen}
             onChange={handleOnChange}
@@ -284,7 +278,7 @@ const App = () => {
             label='Zanimanje'
             placeholder='Unesite zanimanje'
             required
-            width={3}
+            width={5}
             name='zanimanje'
             value={formValues.zanimanje}
             onChange={handleOnChange}
@@ -294,8 +288,8 @@ const App = () => {
             label='Stručna sprema'
             options={getSelectOptions(schoolGrade)}
             placeholder='Odaberite opciju'
-            width={3}
             required
+            width={3}
             name='strucnaSprema'
             value={formValues.strucnaSprema}
             onChange={handleOnChange}
@@ -305,7 +299,7 @@ const App = () => {
             label='Mjesto završetka škole'
             placeholder='Unesite mjesto završetka škole'
             required
-            width={3}
+            width={5}
             name='mjestoZavrsetkaSkole'
             value={formValues.mjestoZavrsetkaSkole}
             onChange={handleOnChange}
@@ -347,6 +341,7 @@ const App = () => {
             label='Datum izdavanja pasoša'
             control={DatePicker}
             required
+            width={4}
             selected={formValues.datumIzdavanjaPasosa}
             onChange={(date) =>
               handleDatepickerChange("datumIzdavanjaPasosa", date)
@@ -363,6 +358,7 @@ const App = () => {
             label='Datum isteka pasoša'
             control={DatePicker}
             required
+            width={4}
             selected={formValues.datumVazenjaPasosa}
             onChange={(date) =>
               handleDatepickerChange("datumVazenjaPasosa", date)
@@ -380,7 +376,7 @@ const App = () => {
             label='Bedel'
             options={getSelectOptions(yesNo)}
             placeholder='Odaberite opciju'
-            width={6}
+            width={3}
             name='bedel'
             value={formValues.bedel}
             onChange={handleOnChange}
@@ -389,7 +385,7 @@ const App = () => {
           <Form.Input
             label='Ime i prezime'
             placeholder='Unesite ime i prezime za koga idete kao bedel'
-            width={6}
+            width={9}
             name='bedelIme'
             value={formValues.bedelIme}
             onChange={handleOnChange}
@@ -400,7 +396,7 @@ const App = () => {
           <Form.Input
             label='Želi da putuje sa'
             placeholder='Unesite ime i prezime samo jedne osobe'
-            width={12}
+            width={8}
             name='zeliDaPutujeSa'
             value={formValues.zeliDaPutujeSa}
             onChange={handleOnChange}
