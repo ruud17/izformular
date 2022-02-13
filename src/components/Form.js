@@ -28,8 +28,8 @@ const FormComp = ({ travelType, formOwner }) => {
     imeOca: "",
     imeDjeda: "",
     imeMajke: "",
-    bracnoStanje: "", // brak ne treba
-    spol: "", // brak ne treba
+    bracnoStanje: "",
+    spol: "",
     datumRodjenja: "",
     mjestoRodjenja: "",
     sadasnjeDrzavljanstvo: "",
@@ -54,14 +54,19 @@ const FormComp = ({ travelType, formOwner }) => {
     zeliDaPutujeSa: "",
     imePratioca: "",
   });
-  const [displayErrorBox, setDisplayErrorBox] = useState(false);
-  const [errorsToDisplay, setErrorsToDisplay] = useState([]);
 
   const handleOnChange = (e, { name, value }) => {
     setFormValues((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "muftijstvo") {
+      setFormValues((prevState) => ({
+        ...prevState,
+        medzlis: "",
+      }));
+    }
   };
 
   const handleDatepickerChange = (name, value) => {
@@ -137,6 +142,7 @@ const FormComp = ({ travelType, formOwner }) => {
                   options={getMedzlisiOdMuftijstva(formValues.muftijstvo)}
                   placeholder='Odaberite medžlis'
                   required
+                  disabled={!formValues.muftijstvo}
                   name='medzlis'
                   value={formValues.medzlis}
                   onChange={handleOnChange}
@@ -290,7 +296,7 @@ const FormComp = ({ travelType, formOwner }) => {
             />
 
             <Form.Input
-              label='Broj pošte'
+              label='Poštanski broj'
               placeholder='Unesite br. pošte'
               required
               width={4}
@@ -371,9 +377,10 @@ const FormComp = ({ travelType, formOwner }) => {
 
           <Form.Group>
             <Form.Input
-              label='Adresa na poslu'
+              label='Adresa na poslu (za zaposlene)'
               placeholder='Unesite adresu mjesta gdje radite'
               width={6}
+              disabled={formValues.zaposlen !== "Da"}
               name='adresaNaPoslu'
               value={formValues.adresaNaPoslu}
               onChange={handleOnChange}
@@ -381,9 +388,10 @@ const FormComp = ({ travelType, formOwner }) => {
 
             <Form.Input
               type='number'
-              label='Broj telefona na poslu'
+              label='Broj telefona na poslu (za zaposlene)'
               placeholder='Unesite br. tel. mjesta gdje radite'
               width={6}
+              disabled={formValues.zaposlen !== "Da"}
               name='telefonNaPoslu'
               value={formValues.telefonNaPoslu}
               onChange={handleOnChange}
