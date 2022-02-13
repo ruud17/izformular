@@ -20,7 +20,7 @@ import {
 } from "../constants";
 import Pdf from "react-to-pdf";
 
-const FormComp = ({ travelType }) => {
+const FormComp = ({ travelType, formOwner }) => {
   const [formValues, setFormValues] = useState({
     muftijstvo: "",
     medzlis: "",
@@ -72,11 +72,10 @@ const FormComp = ({ travelType }) => {
   const ref = React.createRef();
 
   return (
-    <div className='form-main'>
+    <div className='form-pdf-section'>
       <div ref={ref}>
-        <Message size='tiny'>
-          Aplikacijski formular za odlazak na hadž (
-          {travelType === travelTypes.single ? "Pojedinac" : "Muz/zena"})
+        <Message size='small' color='blue'>
+          Aplikacijski formular za odlazak na hadž (<b>{formOwner}</b>)
         </Message>
 
         <Divider />
@@ -441,23 +440,25 @@ const FormComp = ({ travelType }) => {
           </Form.Group>
         </Form>
       </div>
-      <Pdf
-        targetRef={ref}
-        filename={`${formValues.imeIPrezime}-prijava-za-hadz.pdf`}
-        x={5}
-        y={2}
-        scale={0.8}
-      >
-        {({ toPdf }) => (
-          <Button
-            primary
-            icon='file pdf'
-            floated='right'
-            onClick={toPdf}
-            content='Sačuvaj kao PDF'
-          />
-        )}
-      </Pdf>
+      <div>
+        <Pdf
+          targetRef={ref}
+          filename={`${formValues.imeIPrezime}-prijava-za-hadz.pdf`}
+          x={5}
+          y={2}
+          scale={0.8}
+        >
+          {({ toPdf }) => (
+            <Button
+              primary
+              icon='file pdf'
+              floated='right'
+              onClick={toPdf}
+              content='Sačuvaj kao PDF'
+            />
+          )}
+        </Pdf>
+      </div>
     </div>
   );
 };
