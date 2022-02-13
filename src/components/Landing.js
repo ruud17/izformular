@@ -6,7 +6,6 @@ const LandingComp = ({ onClickTravelType }) => {
   return (
     <div className='landing'>
       <Header as='h2' icon textAlign='center' color='grey'>
-        <Icon name='plane' color='grey' size='mini' />
         <Header.Content className='text'>
           Odaberite da li na hadž putujete kao pojedinac ili kao bračni par
         </Header.Content>

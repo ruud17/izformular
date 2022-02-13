@@ -3,7 +3,7 @@ import logo from "../img/ured-za-hadz-logo.png";
 
 const HeaderComp = () => {
   return (
-    <Segment padded='very'>
+    <Segment padded='mini'>
       <Image src={logo} size='large' centered />
     </Segment>
   );

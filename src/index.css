@@ -64,13 +64,13 @@ code {
 
 .landing {
   margin: 5% 0;
-  color: grey;
   justify-content: center;
 }
 
 .landing .text {
   margin: 2% 0;
   font-size: 18px;
+  letter-spacing: 0.1em;
 }
 
 .landing .btns {
