@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import {
   Form,
-  Card,
   Message,
   Divider,
-  Header,
+  Grid,
   Button,
-  Image,
+  Header,
 } from "semantic-ui-react";
 import DatePicker from "react-datepicker";
 import { getSelectOptions, getMedzlisiOdMuftijstva } from "../helpers";
@@ -121,73 +120,80 @@ const FormComp = ({ travelType, formOwner }) => {
         <Message size='small' color='blue'>
           Aplikacijski formular za odlazak na hadž (<b>{formOwner}</b>)
         </Message>
-
-        <Divider />
         <Form>
-          <div className='img-basic-info'>
-            <div className='left-corner'>slika</div>
-            <div>
-              <Form.Group widths='equal'>
-                <Form.Select
-                  label='Muftijstvo'
-                  options={getSelectOptions(muftijstvaIMedzlisi, true)}
-                  placeholder='Odaberite muftijstvo'
-                  required
-                  name='muftijstvo'
-                  value={formValues.muftijstvo}
-                  onChange={handleOnChange}
-                />
-                <Form.Select
-                  label='Medžlis'
-                  options={getMedzlisiOdMuftijstva(formValues.muftijstvo)}
-                  placeholder='Odaberite medžlis'
-                  required
-                  disabled={!formValues.muftijstvo}
-                  name='medzlis'
-                  value={formValues.medzlis}
-                  onChange={handleOnChange}
-                />
-              </Form.Group>
+          <div>
+            <Grid divided='vertically'>
+              <Grid.Row>
+                <Grid.Column width={4}>
+                  <div className='left-corner'>slika</div>
+                </Grid.Column>
+                <Grid.Column width={12}>
+                  <Form.Group widths='equal'>
+                    <Form.Select
+                      label='Muftijstvo'
+                      options={getSelectOptions(muftijstvaIMedzlisi, true)}
+                      placeholder='Odaberite muftijstvo'
+                      required
+                      name='muftijstvo'
+                      value={formValues.muftijstvo}
+                      onChange={handleOnChange}
+                    />
+                    <Form.Select
+                      label='Medžlis'
+                      options={getMedzlisiOdMuftijstva(formValues.muftijstvo)}
+                      placeholder='Odaberite medžlis'
+                      required
+                      disabled={!formValues.muftijstvo}
+                      name='medzlis'
+                      value={formValues.medzlis}
+                      onChange={handleOnChange}
+                    />
+                  </Form.Group>
 
-              <Form.Group>
-                <Form.Input
-                  label='Ime i prezime'
-                  placeholder='Unesite Vaše ime i prezime'
-                  width={16}
-                  required
-                  name='imeIPrezime'
-                  value={formValues.imeIPrezime}
-                  onChange={handleOnChange}
-                />
-              </Form.Group>
+                  <Form.Group>
+                    <Form.Input
+                      label='Ime i prezime'
+                      placeholder='Unesite Vaše ime i prezime'
+                      width={16}
+                      required
+                      name='imeIPrezime'
+                      value={formValues.imeIPrezime}
+                      onChange={handleOnChange}
+                    />
+                  </Form.Group>
 
-              <Form.Group widths='equal'>
-                <Form.Input
-                  label='Ime oca'
-                  placeholder='Unesite ime oca'
-                  required
-                  name='imeOca'
-                  value={formValues.imeOca}
-                  onChange={handleOnChange}
-                />
-                <Form.Input
-                  label='Ime djeda'
-                  placeholder='Unesite ime djeda'
-                  required
-                  name='imeDjeda'
-                  value={formValues.imeDjeda}
-                  onChange={handleOnChange}
-                />
-                <Form.Input
-                  label='Ime majke'
-                  placeholder='Unesite ime majke'
-                  required
-                  name='imeMajke'
-                  value={formValues.imeMajke}
-                  onChange={handleOnChange}
-                />
-              </Form.Group>
-            </div>
+                  <Form.Group>
+                    <Form.Input
+                      label='Ime oca'
+                      placeholder='Unesite ime oca'
+                      required
+                      width={5}
+                      name='imeOca'
+                      value={formValues.imeOca}
+                      onChange={handleOnChange}
+                    />
+                    <Form.Input
+                      label='Ime djeda'
+                      placeholder='Unesite ime djeda'
+                      required
+                      width={5}
+                      name='imeDjeda'
+                      value={formValues.imeDjeda}
+                      onChange={handleOnChange}
+                    />
+                    <Form.Input
+                      label='Ime majke'
+                      placeholder='Unesite ime majke'
+                      required
+                      width={6}
+                      name='imeMajke'
+                      value={formValues.imeMajke}
+                      onChange={handleOnChange}
+                    />
+                  </Form.Group>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
           </div>
           <Divider />
 
@@ -517,7 +523,7 @@ const FormComp = ({ travelType, formOwner }) => {
         >
           {({ toPdf }) => (
             <Button
-              disabled={disablePdfBtn()}
+              //  disabled={disablePdfBtn()}
               primary
               icon='file pdf'
               floated='right'
@@ -526,6 +532,10 @@ const FormComp = ({ travelType, formOwner }) => {
             />
           )}
         </Pdf>
+        <Header as='h5' floated='right' className='note'>
+          Polja označena sa <span style={{ color: "red" }}> * </span> su
+          obavezna!
+        </Header>
       </div>
     </div>
   );
