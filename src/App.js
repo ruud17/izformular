@@ -24,7 +24,11 @@ const App = () => {
           </div>
         );
       default:
-        return <LandingComp onClickTravelType={setTravelType} />;
+        return (
+          <>
+            <LandingComp onClickTravelType={setTravelType} /> <FooterComp />
+          </>
+        );
     }
   };
 
@@ -32,7 +36,6 @@ const App = () => {
     <div className='wrapper'>
       <HeaderComp />
       {renderCompSwitch()}
-      <FooterComp />
     </div>
   );
 };

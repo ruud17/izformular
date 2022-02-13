@@ -48,11 +48,16 @@ code {
 }
 
 .footer {
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  position: fixed !important;
   left: 0;
   bottom: 0;
   width: 100%;
-  color: white;
   text-align: center;
-  border-top: 1px solid black;
+}
+
+.footer .span {
+  background-color: #1e1e1e;
+  color: #b4b4b4;
 }
