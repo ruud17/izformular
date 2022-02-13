@@ -63,18 +63,18 @@ code {
 }
 
 .landing {
-  margin: 5% 0;
+  margin: 10% 0;
   justify-content: center;
 }
 
 .landing .text {
-  margin: 2% 0;
+  margin: 3% 0;
   font-size: 18px;
   letter-spacing: 0.1em;
 }
 
 .landing .btns {
   display: flex;
-  padding: 0 30%;
+  padding: 0 35%;
   justify-content: space-evenly;
 }

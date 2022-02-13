@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Icon, Segment, Header } from "semantic-ui-react";
+import { Button, Header } from "semantic-ui-react";
 import { travelTypes } from "../constants";
 
 const LandingComp = ({ onClickTravelType }) => {

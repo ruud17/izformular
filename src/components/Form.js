@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Message,
-  Divider,
-  Grid,
-  Button,
-  Header,
-} from "semantic-ui-react";
+import { Form, Message, Grid, Button, Header } from "semantic-ui-react";
+import Pdf from "react-to-pdf";
 import DatePicker from "react-datepicker";
 import { getSelectOptions, getMedzlisiOdMuftijstva } from "../helpers";
 import {
@@ -17,7 +11,6 @@ import {
   schoolGrade,
   travelTypes,
 } from "../constants";
-import Pdf from "react-to-pdf";
 
 const FormComp = ({ travelType, formOwner }) => {
   const [formValues, setFormValues] = useState({
