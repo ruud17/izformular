@@ -61,3 +61,20 @@ code {
   background-color: #1e1e1e;
   color: #b4b4b4;
 }
+
+.landing {
+  margin: 5% 0;
+  color: grey;
+  justify-content: center;
+}
+
+.landing .text {
+  margin: 2% 0;
+  font-size: 18px;
+}
+
+.landing .btns {
+  display: flex;
+  padding: 0 30%;
+  justify-content: space-evenly;
+}

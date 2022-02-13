@@ -1,31 +1,33 @@
 import React from "react";
-import { Button, Header, Icon, Segment } from "semantic-ui-react";
+import { Button, Card, Icon, Segment, Header } from "semantic-ui-react";
 import { travelTypes } from "../constants";
 
 const LandingComp = ({ onClickTravelType }) => {
   return (
-    <Segment placeholder color='teal' size='big'>
-      <Header icon>
-        <Icon name='plane' />
-        Putujem(o) kao ...
+    <div className='landing'>
+      <Header as='h2' icon textAlign='center' color='grey'>
+        <Icon name='plane' color='grey' size='mini' />
+        <Header.Content className='text'>
+          Odaberite da li na hadž putujete kao pojedinac ili kao bračni par
+        </Header.Content>
       </Header>
-      <Segment.Inline>
+      <div className='btns'>
         <Button
-          color='teal'
-          size='huge'
+          primary
+          size='big'
           onClick={() => onClickTravelType(travelTypes.single)}
         >
           Pojedinac
         </Button>
         <Button
-          color='teal'
-          size='huge'
+          primary
+          size='big'
           onClick={() => onClickTravelType(travelTypes.marriedCouple)}
         >
           Bračni par
         </Button>
-      </Segment.Inline>
-    </Segment>
+      </div>
+    </div>
   );
 };
 
