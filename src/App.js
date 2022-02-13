@@ -1,5 +1,5 @@
 import "./App.css";
-import { Form, Card, Message } from "semantic-ui-react";
+import { Form, Card, Message, Divider, Header } from "semantic-ui-react";
 import DatePicker from "react-datepicker";
 import React, { useState } from "react";
 import { getSelectOptions, getMedzlisiOdMuftijstva } from "./helpers";
@@ -79,13 +79,15 @@ const App = () => {
   return (
     <div className='wrapper'>
       <div ref={ref} className='main'>
+        <Header as='h3' textAlign='center'>
+          Aplikacijski formular za odlazak na hadž
+        </Header>
+        <Divider />
         <Form>
           <div className='img-basic-info'>
-            <Card className='img-left-corner' color='green'>
-              <Card.Content>slika</Card.Content>
-            </Card>
+            <div className='left-corner'>slika</div>
             <div>
-              <Form.Group>
+              <Form.Group widths='equal'>
                 <Form.Select
                   label='Muftijstvo'
                   options={getSelectOptions(muftijstvaIMedzlisi, true)}
@@ -110,7 +112,7 @@ const App = () => {
                 <Form.Input
                   label='Ime i prezime'
                   placeholder='Unesite Vaše ime i prezime'
-                  width={4}
+                  width={16}
                   required
                   name='imeIPrezime'
                   value={formValues.imeIPrezime}
@@ -146,8 +148,9 @@ const App = () => {
               </Form.Group>
             </div>
           </div>
+          <Divider />
 
-          <Form.Group widths='equal'>
+          <Form.Group>
             <Form.Select
               label='Bračno stanje'
               options={getSelectOptions(maritalStatuses)}
@@ -433,7 +436,7 @@ const App = () => {
               style={{ height: 100 + "px" }}
             />
             <Form.Field
-              label='Potpis hadžije(ne smije preći izvan kvadrata)'
+              label='Potpis hadžije (ne smije preći izvan kvadrata)'
               control={Message}
               size='big'
               style={{ height: 100 + "px" }}

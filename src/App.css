@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-  height: 100vh; /*for demo only*/
+  height: 100vh;
   overflow: auto;
 }
 
@@ -15,11 +15,14 @@
 
 .img-basic-info {
   display: flex;
+}
 
-  .img-left-corner {
-    /* height: 250px;
-    width: 100px !important;
-    text-align: center;
-    margin-right: 30px !important; */
-  }
+.left-corner {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dotted rgb(80, 79, 79);
+  border-radius: 1em;
+  margin-right: 10px;
 }
