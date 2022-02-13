@@ -336,9 +336,30 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Zanimanje'
               placeholder='Unesite zanimanje'
               required
-              width={7}
+              width={6}
               name='zanimanje'
               value={formValues.zanimanje}
+              onChange={handleOnChange}
+            />
+
+            <Form.Input
+              label='Adresa na poslu'
+              placeholder='Unesite adresu mjesta gdje radite'
+              width={6}
+              disabled={formValues.zaposlen !== "Da"}
+              name='adresaNaPoslu'
+              value={formValues.adresaNaPoslu}
+              onChange={handleOnChange}
+            />
+
+            <Form.Input
+              type='number'
+              label='Broj telefona na poslu'
+              placeholder='Unesite br. tel. mjesta gdje radite'
+              width={6}
+              disabled={formValues.zaposlen !== "Da"}
+              name='telefonNaPoslu'
+              value={formValues.telefonNaPoslu}
               onChange={handleOnChange}
             />
           </Form.Group>
@@ -362,29 +383,6 @@ const FormComp = ({ travelType, formOwner }) => {
               width={7}
               name='mjestoZavrsetkaSkole'
               value={formValues.mjestoZavrsetkaSkole}
-              onChange={handleOnChange}
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Input
-              label='Adresa na poslu (za zaposlene)'
-              placeholder='Unesite adresu mjesta gdje radite'
-              width={6}
-              disabled={formValues.zaposlen !== "Da"}
-              name='adresaNaPoslu'
-              value={formValues.adresaNaPoslu}
-              onChange={handleOnChange}
-            />
-
-            <Form.Input
-              type='number'
-              label='Broj telefona na poslu (za zaposlene)'
-              placeholder='Unesite br. tel. mjesta gdje radite'
-              width={6}
-              disabled={formValues.zaposlen !== "Da"}
-              name='telefonNaPoslu'
-              value={formValues.telefonNaPoslu}
               onChange={handleOnChange}
             />
           </Form.Group>
@@ -482,14 +480,14 @@ const FormComp = ({ travelType, formOwner }) => {
             <Form.Field
               label='Potpis i pečat Muftijstva'
               control={Message}
-              size='big'
-              style={{ height: 100 + "px" }}
+              size='massive'
+              style={{ margin: 0 }}
             />
             <Form.Field
               label='Potpis hadžije (ne smije preći izvan kvadrata)'
               control={Message}
-              size='big'
-              style={{ height: 100 + "px" }}
+              size='massive'
+              style={{ margin: 0 }}
             />
           </Form.Group>
         </Form>
@@ -504,7 +502,7 @@ const FormComp = ({ travelType, formOwner }) => {
         >
           {({ toPdf }) => (
             <Button
-              //   disabled={disablePdfBtn()}
+              disabled={disablePdfBtn()}
               primary
               icon='file pdf'
               floated='right'
