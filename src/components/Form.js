@@ -51,9 +51,11 @@ const FormComp = ({ travelType, formOwner }) => {
     datumVazenjaPasosa: "",
     bedel: "",
     bedelIme: "",
-    zeliDaPutujeSa: "", // brak ne treba
-    imePratioca: "", // brak ne treba
+    zeliDaPutujeSa: "",
+    imePratioca: "",
   });
+  const [displayErrorBox, setDisplayErrorBox] = useState(false);
+  const [errorsToDisplay, setErrorsToDisplay] = useState([]);
 
   const handleOnChange = (e, { name, value }) => {
     setFormValues((prevState) => ({
@@ -67,6 +69,43 @@ const FormComp = ({ travelType, formOwner }) => {
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const disablePdfBtn = () => {
+    if (
+      !formValues.muftijstvo ||
+      !formValues.medzlis ||
+      !formValues.imeIPrezime ||
+      !formValues.imeOca ||
+      !formValues.imeDjeda ||
+      !formValues.imeMajke ||
+      !formValues.datumRodjenja ||
+      !formValues.mjestoRodjenja ||
+      !formValues.sadasnjeDrzavljanstvo ||
+      !formValues.drzavljanstvoPriRodjenju ||
+      !formValues.adresa ||
+      !formValues.adresaBroj ||
+      !formValues.mjestoStanovanja ||
+      !formValues.brojPoste ||
+      !formValues.telefon ||
+      !formValues.email ||
+      !formValues.zaposlen ||
+      !formValues.zanimanje ||
+      !formValues.strucnaSprema ||
+      !formValues.mjestoZavrsetkaSkole ||
+      !formValues.brojPasosa ||
+      !formValues.datumIzdavanjaPasosa ||
+      !formValues.datumVazenjaPasosa ||
+      !formValues.mjestoStanovanja ||
+      !formValues.mjestoStanovanja ||
+      !formValues.mjestoStanovanja ||
+      !formValues.mjestoStanovanja ||
+      (travelType === travelTypes.single &&
+        (!formValues.bracnoStanje || !formValues.spol))
+    ) {
+      return true;
+    }
+    return false;
   };
 
   const ref = React.createRef();
@@ -470,6 +509,7 @@ const FormComp = ({ travelType, formOwner }) => {
         >
           {({ toPdf }) => (
             <Button
+              disabled={disablePdfBtn()}
               primary
               icon='file pdf'
               floated='right'
