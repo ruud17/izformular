@@ -33,7 +33,7 @@ const App = () => {
     <div className='wrapper'>
       <HeaderComp />
       {renderCompSwitch()}
-      {/* <FooterComp /> */}
+      <FooterComp />
     </div>
   );
 };

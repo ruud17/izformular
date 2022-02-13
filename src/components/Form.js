@@ -146,35 +146,40 @@ const FormComp = ({ travelType, formOwner }) => {
           </div>
           <Divider />
 
-          <Form.Group>
-            <Form.Select
-              label='Bračno stanje'
-              options={getSelectOptions(maritalStatuses)}
-              placeholder='Odaberite bračno stanje'
-              required
-              name='bracnoStanje'
-              value={formValues.bracnoStanje}
-              onChange={handleOnChange}
-            />
-            <Form.Select
-              label='Spol'
-              options={getSelectOptions(gender)}
-              placeholder='Odaberite spol'
-              required
-              name='spol'
-              value={formValues.spol}
-              onChange={handleOnChange}
-            />
-          </Form.Group>
+          {travelType === travelTypes.single && (
+            <Form.Group>
+              <Form.Select
+                label='Bračno stanje'
+                options={getSelectOptions(maritalStatuses)}
+                placeholder='Odaberite bračno stanje'
+                required
+                width={5}
+                name='bracnoStanje'
+                value={formValues.bracnoStanje}
+                onChange={handleOnChange}
+              />
+              <Form.Select
+                label='Spol'
+                options={getSelectOptions(gender)}
+                placeholder='Odaberite spol'
+                required
+                width={7}
+                name='spol'
+                value={formValues.spol}
+                onChange={handleOnChange}
+              />
+            </Form.Group>
+          )}
 
-          <Form.Group widths='equal'>
+          <Form.Group>
             <Form.Field
               label='Datum rođenja'
               control={DatePicker}
               required
+              width={4}
               selected={formValues.datumRodjenja}
               onChange={(date) => handleDatepickerChange("datumRodjenja", date)}
-              dateFormat='dd MMMM yyyy'
+              dateFormat='dd.MM.yyyy'
               showYearDropdown={true}
               scrollableYearDropdown={true}
               yearItemNumber={100}
@@ -186,6 +191,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Mjesto rođenja'
               placeholder='Unesite mjesto rođenja'
               required
+              width={4}
               name='mjestoRodjenja'
               value={formValues.mjestoRodjenja}
               onChange={handleOnChange}
@@ -194,6 +200,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Sadašnje državljanstvo'
               placeholder='Unesite sadašnje državljanstvo'
               required
+              width={4}
               name='sadasnjeDrzavljanstvo'
               value={formValues.sadasnjeDrzavljanstvo}
               onChange={handleOnChange}
@@ -203,6 +210,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Državljanstvo pri rođenju'
               placeholder='Unesite državljanstvo pri rođenju'
               required
+              width={4}
               name='drzavljanstvoPriRodjenju'
               value={formValues.drzavljanstvoPriRodjenju}
               onChange={handleOnChange}
@@ -255,6 +263,7 @@ const FormComp = ({ travelType, formOwner }) => {
 
           <Form.Group>
             <Form.Input
+              type='number'
               label='Kontakt telefon'
               placeholder='Unesite broj telefona'
               required
@@ -281,6 +290,7 @@ const FormComp = ({ travelType, formOwner }) => {
               options={getSelectOptions(yesNo)}
               placeholder='Odaberite opciju'
               required
+              width={5}
               name='zaposlen'
               value={formValues.zaposlen}
               onChange={handleOnChange}
@@ -290,6 +300,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Zanimanje'
               placeholder='Unesite zanimanje'
               required
+              width={7}
               name='zanimanje'
               value={formValues.zanimanje}
               onChange={handleOnChange}
@@ -302,6 +313,7 @@ const FormComp = ({ travelType, formOwner }) => {
               options={getSelectOptions(schoolGrade)}
               placeholder='Odaberite opciju'
               required
+              width={5}
               name='strucnaSprema'
               value={formValues.strucnaSprema}
               onChange={handleOnChange}
@@ -311,7 +323,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Mjesto završetka škole'
               placeholder='Unesite mjesto završetka škole'
               required
-              width={12}
+              width={7}
               name='mjestoZavrsetkaSkole'
               value={formValues.mjestoZavrsetkaSkole}
               onChange={handleOnChange}
@@ -329,9 +341,10 @@ const FormComp = ({ travelType, formOwner }) => {
             />
 
             <Form.Input
+              type='number'
               label='Broj telefona na poslu'
-              placeholder='Unesite broj telefona na mjestu gdje radite'
-              width={4}
+              placeholder='Unesite br. tel. mjesta gdje radite'
+              width={6}
               name='telefonNaPoslu'
               value={formValues.telefonNaPoslu}
               onChange={handleOnChange}
@@ -356,7 +369,7 @@ const FormComp = ({ travelType, formOwner }) => {
               onChange={(date) =>
                 handleDatepickerChange("datumIzdavanjaPasosa", date)
               }
-              dateFormat='dd MMMM yyyy'
+              dateFormat='dd.MM.yyyy'
               showYearDropdown={true}
               scrollableYearDropdown={true}
               yearItemNumber={10}
@@ -372,7 +385,7 @@ const FormComp = ({ travelType, formOwner }) => {
               onChange={(date) =>
                 handleDatepickerChange("datumVazenjaPasosa", date)
               }
-              dateFormat='dd MMMM yyyy'
+              dateFormat='dd.MM.yyyy'
               showYearDropdown={true}
               scrollableYearDropdown={true}
               yearItemNumber={10}
@@ -385,7 +398,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Bedel'
               options={getSelectOptions(yesNo)}
               placeholder='Odaberite opciju'
-              width={4}
+              width={5}
               name='bedel'
               value={formValues.bedel}
               onChange={handleOnChange}
@@ -394,35 +407,42 @@ const FormComp = ({ travelType, formOwner }) => {
             <Form.Input
               label='Ime i prezime'
               placeholder='Unesite ime i prezime za koga idete kao bedel'
-              width={12}
+              width={11}
               name='bedelIme'
               value={formValues.bedelIme}
               onChange={handleOnChange}
             />
           </Form.Group>
 
-          <Form.Group>
-            <Form.Input
-              label='Želi da putuje sa'
-              placeholder='Unesite ime i prezime samo jedne osobe'
-              name='zeliDaPutujeSa'
-              width={8}
-              value={formValues.zeliDaPutujeSa}
-              onChange={handleOnChange}
-            />
-          </Form.Group>
+          {travelType === travelTypes.single && (
+            <>
+              <Form.Group>
+                <Form.Input
+                  label='Želi da putuje sa'
+                  placeholder='Unesite ime i prezime samo jedne osobe'
+                  name='zeliDaPutujeSa'
+                  width={8}
+                  value={formValues.zeliDaPutujeSa}
+                  onChange={handleOnChange}
+                />
+              </Form.Group>
 
-          <Form.Group widths='equal'>
-            <Form.Input
-              label='Lični pratioc'
-              placeholder='Unesite ime i prezime ličnog pratioca'
-              name='imePratioca'
-              value={formValues.imePratioca}
-              onChange={handleOnChange}
-            />
+              <Form.Group widths='equal'>
+                <Form.Input
+                  label='Lični pratioc'
+                  placeholder='Unesite ime i prezime ličnog pratioca'
+                  name='imePratioca'
+                  value={formValues.imePratioca}
+                  onChange={handleOnChange}
+                />
 
-            <Form.Field label='Potpis pratioca' control={Message}></Form.Field>
-          </Form.Group>
+                <Form.Field
+                  label='Potpis pratioca'
+                  control={Message}
+                ></Form.Field>
+              </Form.Group>
+            </>
+          )}
 
           <Form.Group style={{ display: "flex" }} widths='equal'>
             <Form.Field
