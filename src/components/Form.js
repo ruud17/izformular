@@ -523,7 +523,7 @@ const FormComp = ({ travelType, formOwner }) => {
         >
           {({ toPdf }) => (
             <Button
-              //  disabled={disablePdfBtn()}
+              disabled={disablePdfBtn()}
               primary
               icon='file pdf'
               floated='right'

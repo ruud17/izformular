@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FooterComp from "./components/Footer";
 import FormComp from "./components/Form";
 import HeaderComp from "./components/Header";
-import "./App.css";
 import LandingComp from "./components/Landing";
 import { travelTypes } from "./constants";
 
