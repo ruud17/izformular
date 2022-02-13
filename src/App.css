@@ -7,7 +7,7 @@
   overflow: auto;
 }
 
-.main {
+.form-main {
   width: 40%;
   margin: auto;
   margin-top: 3%;
@@ -26,4 +26,14 @@
   border: 2px dotted rgb(80, 79, 79);
   border-radius: 1em;
   margin-right: 10px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }

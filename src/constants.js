@@ -129,3 +129,8 @@ export const gender = ["Muško", "Žensko"];
 export const yesNo = ["Da", "Ne"];
 
 export const schoolGrade = ["NSS", "VŠS", "VSS", "Magistar", "Doktor"];
+
+export const travelTypes = {
+  single: "single",
+  marriedCouple: "marriedCouple",
+};
