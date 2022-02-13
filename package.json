@@ -12,10 +12,11 @@
     "react-scripts": "5.0.0",
     "react-to-pdf": "0.0.14",
     "semantic-ui-css": "git+https://github.com/Semantic-Org/Semantic-UI-CSS.git",
-    "semantic-ui-react": "^2.1.1"
+    "semantic-ui-react": "^2.1.1",
+    "serve": "^13.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
