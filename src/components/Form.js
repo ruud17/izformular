@@ -217,7 +217,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Datum rođenja'
               control={DatePicker}
               required
-              width={4}
+              width={3}
               selected={formValues.datumRodjenja}
               onChange={(date) => handleDatepickerChange("datumRodjenja", date)}
               dateFormat='dd.MM.yyyy'
@@ -232,7 +232,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Mjesto rođenja'
               placeholder='Unesite mjesto rođenja'
               required
-              width={4}
+              width={3}
               name='mjestoRodjenja'
               value={formValues.mjestoRodjenja}
               onChange={handleOnChange}
@@ -241,7 +241,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Sadašnje državljanstvo'
               placeholder='Unesite sadašnje državljanstvo'
               required
-              width={4}
+              width={5}
               name='sadasnjeDrzavljanstvo'
               value={formValues.sadasnjeDrzavljanstvo}
               onChange={handleOnChange}
@@ -251,7 +251,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Državljanstvo pri rođenju'
               placeholder='Unesite državljanstvo pri rođenju'
               required
-              width={4}
+              width={5}
               name='drzavljanstvoPriRodjenju'
               value={formValues.drzavljanstvoPriRodjenju}
               onChange={handleOnChange}
