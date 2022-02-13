@@ -1,18 +1,25 @@
-.main {
-  margin: 2% 20% 2% 20%;
-  padding: 10px;
+.body {
+  margin: 0;
 }
 
-.basic-info {
+.wrapper {
+  height: 100vh; /*for demo only*/
+  overflow: auto;
+}
+
+.main {
+  width: 40%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.img-basic-info {
   display: flex;
 
-  .img {
-    height: 250px;
-    width: 120px;
+  .img-left-corner {
+    /* height: 250px;
+    width: 100px !important;
     text-align: center;
-  }
-
-  .main-info {
-    margin-left: 2% !important;
+    margin-right: 30px !important; */
   }
 }
