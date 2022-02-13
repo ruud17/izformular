@@ -211,7 +211,7 @@ const FormComp = ({ travelType, formOwner }) => {
                 options={getSelectOptions(gender)}
                 placeholder='Odaberite spol'
                 required
-                width={7}
+                width={5}
                 name='spol'
                 value={formValues.spol}
                 onChange={handleOnChange}
@@ -287,6 +287,7 @@ const FormComp = ({ travelType, formOwner }) => {
             />
 
             <Form.Input
+              type='number'
               label='Poštanski broj'
               placeholder='Unesite br. pošte'
               required
@@ -336,7 +337,7 @@ const FormComp = ({ travelType, formOwner }) => {
               label='Zanimanje'
               placeholder='Unesite zanimanje'
               required
-              width={6}
+              width={4}
               name='zanimanje'
               value={formValues.zanimanje}
               onChange={handleOnChange}
@@ -344,8 +345,8 @@ const FormComp = ({ travelType, formOwner }) => {
 
             <Form.Input
               label='Adresa na poslu'
-              placeholder='Unesite adresu mjesta gdje radite'
-              width={6}
+              placeholder='Unesite adresu'
+              width={4}
               disabled={formValues.zaposlen !== "Da"}
               name='adresaNaPoslu'
               value={formValues.adresaNaPoslu}
@@ -354,9 +355,9 @@ const FormComp = ({ travelType, formOwner }) => {
 
             <Form.Input
               type='number'
-              label='Broj telefona na poslu'
-              placeholder='Unesite br. tel. mjesta gdje radite'
-              width={6}
+              label='Broj tel. na poslu'
+              placeholder='Unesite br. tel.'
+              width={3}
               disabled={formValues.zaposlen !== "Da"}
               name='telefonNaPoslu'
               value={formValues.telefonNaPoslu}
