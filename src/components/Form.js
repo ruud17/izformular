@@ -34,7 +34,6 @@ const FormComp = ({ travelType, formOwner }) => {
     sadasnjeDrzavljanstvo: "",
     drzavljanstvoPriRodjenju: "",
     adresa: "",
-    adresaBroj: "",
     mjestoStanovanja: "",
     brojPoste: "",
     telefon: "",
@@ -88,7 +87,6 @@ const FormComp = ({ travelType, formOwner }) => {
       !formValues.sadasnjeDrzavljanstvo ||
       !formValues.drzavljanstvoPriRodjenju ||
       !formValues.adresa ||
-      !formValues.adresaBroj ||
       !formValues.mjestoStanovanja ||
       !formValues.brojPoste ||
       !formValues.telefon ||
@@ -195,7 +193,6 @@ const FormComp = ({ travelType, formOwner }) => {
               </Grid.Row>
             </Grid>
           </div>
-          <Divider />
 
           {travelType === travelTypes.single && (
             <Form.Group>
@@ -271,31 +268,19 @@ const FormComp = ({ travelType, formOwner }) => {
           <Form.Group>
             <Form.Input
               label='Adresa stanovanja'
-              placeholder='Unesite adresu stanovanja'
+              placeholder='Unesite ulicu i broj'
               required
-              width={8}
+              width={6}
               name='adresa'
               value={formValues.adresa}
               onChange={handleOnChange}
             />
 
             <Form.Input
-              label='Broj ulice'
-              placeholder='Unesite br. ulice'
-              required
-              width={4}
-              name='adresaBroj'
-              value={formValues.adresaBroj}
-              onChange={handleOnChange}
-            />
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Input
               label='Mjesto stanovanja'
               placeholder='Unesite mjesto/grad stanovanja'
               required
-              width={8}
+              width={6}
               name='mjestoStanovanja'
               value={formValues.mjestoStanovanja}
               onChange={handleOnChange}
@@ -469,18 +454,15 @@ const FormComp = ({ travelType, formOwner }) => {
 
           {travelType === travelTypes.single && (
             <>
-              <Form.Group>
+              <Form.Group widths='equal'>
                 <Form.Input
                   label='Želi da putuje sa'
                   placeholder='Unesite ime i prezime samo jedne osobe'
                   name='zeliDaPutujeSa'
-                  width={8}
                   value={formValues.zeliDaPutujeSa}
                   onChange={handleOnChange}
                 />
-              </Form.Group>
 
-              <Form.Group widths='equal'>
                 <Form.Input
                   label='Lični pratioc'
                   placeholder='Unesite ime i prezime ličnog pratioca'
@@ -488,7 +470,6 @@ const FormComp = ({ travelType, formOwner }) => {
                   value={formValues.imePratioca}
                   onChange={handleOnChange}
                 />
-
                 <Form.Field
                   label='Potpis pratioca'
                   control={Message}
@@ -517,13 +498,13 @@ const FormComp = ({ travelType, formOwner }) => {
         <Pdf
           targetRef={ref}
           filename={`${formValues.imeIPrezime}-prijava-za-hadz.pdf`}
-          x={5}
-          y={2}
-          scale={0.8}
+          x={10}
+          y={5}
+          scale={1}
         >
           {({ toPdf }) => (
             <Button
-              disabled={disablePdfBtn()}
+              //   disabled={disablePdfBtn()}
               primary
               icon='file pdf'
               floated='right'
