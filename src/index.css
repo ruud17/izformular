@@ -78,3 +78,7 @@ code {
   padding: 0 35%;
   justify-content: space-evenly;
 }
+
+.return-back-btn {
+  margin-bottom: 3%;
+}
