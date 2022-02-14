@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Form,
-  Message,
-  Grid,
-  Button,
-  Header,
-  Dimmer,
-  Loader,
-  Segment,
-} from "semantic-ui-react";
+import { Form, Message, Grid, Button, Header } from "semantic-ui-react";
 import Pdf from "react-to-pdf";
 import DatePicker from "react-datepicker";
 import { getSelectOptions, getMedzlisiOdMuftijstva } from "../helpers";
