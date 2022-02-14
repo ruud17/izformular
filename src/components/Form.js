@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Form, Message, Grid, Button, Header } from "semantic-ui-react";
+import {
+  Form,
+  Message,
+  Grid,
+  Button,
+  Header,
+  Dimmer,
+  Loader,
+  Segment,
+} from "semantic-ui-react";
 import Pdf from "react-to-pdf";
 import DatePicker from "react-datepicker";
 import { getSelectOptions, getMedzlisiOdMuftijstva } from "../helpers";
@@ -10,41 +19,12 @@ import {
   yesNo,
   schoolGrade,
   travelTypes,
+  initialFormState,
 } from "../constants";
 
 const FormComp = ({ travelType, formOwner }) => {
-  const [formValues, setFormValues] = useState({
-    muftijstvo: "",
-    medzlis: "",
-    imeIPrezime: "",
-    imeOca: "",
-    imeDjeda: "",
-    imeMajke: "",
-    bracnoStanje: "",
-    spol: "",
-    datumRodjenja: "",
-    mjestoRodjenja: "",
-    sadasnjeDrzavljanstvo: "",
-    drzavljanstvoPriRodjenju: "",
-    adresa: "",
-    mjestoStanovanja: "",
-    brojPoste: "",
-    telefon: "",
-    email: "",
-    zaposlen: "",
-    zanimanje: "",
-    strucnaSprema: "",
-    mjestoZavrsetkaSkole: "",
-    adresaNaPoslu: "",
-    telefonNaPoslu: "",
-    brojPasosa: "",
-    datumIzdavanjaPasosa: "",
-    datumVazenjaPasosa: "",
-    bedel: "",
-    bedelIme: "",
-    zeliDaPutujeSa: "",
-    imePratioca: "",
-  });
+  const [formValues, setFormValues] = useState({ ...initialFormState });
+  const [disableSaveBtn, setDisableSaveBtn] = useState(false);
 
   const handleOnChange = (e, { name, value }) => {
     setFormValues((prevState) => ({
@@ -67,8 +47,16 @@ const FormComp = ({ travelType, formOwner }) => {
     }));
   };
 
+  const savePdf = async (downloadPdfFunc) => {
+    setDisableSaveBtn(true);
+    await downloadPdfFunc();
+    setFormValues({ ...initialFormState });
+    setDisableSaveBtn(false);
+  };
+
   const disablePdfBtn = () => {
     if (
+      disableSaveBtn ||
       !formValues.muftijstvo ||
       !formValues.medzlis ||
       !formValues.imeIPrezime ||
@@ -478,7 +466,7 @@ const FormComp = ({ travelType, formOwner }) => {
               style={{ margin: 0 }}
             />
             <Form.Field
-              label='Potpis hadžije (ne smije preći izvan kvadrata)'
+              label='Potpis hadžije (mora biti isti kao u pasošu)'
               control={Message}
               size='massive'
               style={{ margin: 0 }}
@@ -500,8 +488,8 @@ const FormComp = ({ travelType, formOwner }) => {
               primary
               icon='file pdf'
               floated='right'
-              onClick={toPdf}
-              content='Sačuvaj kao PDF'
+              onClick={() => savePdf(toPdf)}
+              content='Sačuvaj kao PDF i dodaj novog hadžiju'
             />
           )}
         </Pdf>
