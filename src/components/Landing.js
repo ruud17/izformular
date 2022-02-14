@@ -12,6 +12,7 @@ const LandingComp = ({ onClickTravelType }) => {
       </Header>
       <div className='btns'>
         <Button
+          icon='male'
           primary
           size='big'
           onClick={() => onClickTravelType(travelTypes.single)}
